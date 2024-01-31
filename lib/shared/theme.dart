@@ -11,3 +11,5 @@ Color greySecondaryColor = const Color(0xff697C87);
 Color greyThirdColor = const Color(0xff6B6464);
 Color blueTextColor = const Color(0xff0082D2);
 Color blueButtonColor = const Color(0xff0F87DA);
+Color linearBg1 = const Color(0xff0F87DA);
+Color linearBg2 = const Color(0xff02D1FF);

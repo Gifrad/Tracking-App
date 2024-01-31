@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:tracking_app/pages/login/login_page.dart';
+import 'package:tracking_app/pages/register/register_page.dart';
 import 'package:tracking_app/pages/splash/splash_page.dart';
 
 void main() {
@@ -17,9 +18,10 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      routes:{
-        '/' :(context) => const SplashPage(),
-        '/login' :(context) => const LoginPage(),
+      routes: {
+        '/': (context) => const SplashPage(),
+        '/login': (context) => const LoginPage(),
+        '/register': (context) => const RegisterPage(),
       },
     );
   }
