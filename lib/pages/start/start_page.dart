@@ -84,11 +84,16 @@ class _StartPageState extends State<StartPage> {
             const SizedBox(
               height: 81,
             ),
-            Text(
-              'Setting',
-              style: whiteTextStyle.copyWith(
-                fontSize: 20,
-                fontWeight: medium,
+            GestureDetector(
+              onTap: (){
+                Navigator.pushNamed(context, '/setting');
+              },
+              child: Text(
+                'Setting',
+                style: whiteTextStyle.copyWith(
+                  fontSize: 20,
+                  fontWeight: medium,
+                ),
               ),
             )
           ],
