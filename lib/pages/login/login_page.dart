@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tracking_app/pages/widget/custome_from_filed.dart';
 import 'package:tracking_app/shared/theme.dart';
 
 class LoginPage extends StatelessWidget {
@@ -37,9 +38,8 @@ class LoginPage extends StatelessWidget {
                     children: [
                       Text(
                         'Indonesia',
-                        style: TextStyle(
+                        style: whiteTextStyle.copyWith(
                           color: whiteColor,
-                          letterSpacing: 1,
                         ),
                       ),
                     ],
@@ -50,7 +50,7 @@ class LoginPage extends StatelessWidget {
                 ),
                 Text(
                   'Tracking System',
-                  style: TextStyle(
+                  style: whiteTextStyle.copyWith(
                     color: whiteColor,
                     fontWeight: FontWeight.w700,
                     fontSize: 26,
@@ -77,7 +77,7 @@ class LoginPage extends StatelessWidget {
                     children: [
                       Text(
                         'Username',
-                        style: TextStyle(
+                        style: blackTextStyle.copyWith(
                             color: blackColor,
                             fontWeight: FontWeight.w600,
                             fontSize: 14),
@@ -85,19 +85,13 @@ class LoginPage extends StatelessWidget {
                       const SizedBox(
                         height: 6,
                       ),
-                      TextFormField(
-                        decoration: InputDecoration(
-                          border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(10),
-                          ),
-                        ),
-                      ),
+                      const CustomFormField(),
                       const SizedBox(
                         height: 18,
                       ),
                       Text(
                         'Password',
-                        style: TextStyle(
+                        style: blackTextStyle.copyWith(
                             color: blackColor,
                             fontWeight: FontWeight.w600,
                             fontSize: 14),
@@ -105,13 +99,7 @@ class LoginPage extends StatelessWidget {
                       const SizedBox(
                         height: 6,
                       ),
-                      TextFormField(
-                        obscureText: true,
-                        decoration: InputDecoration(
-                          border: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(10)),
-                        ),
-                      ),
+                      const CustomFormField(),
                       const SizedBox(
                         height: 16,
                       ),
@@ -127,10 +115,11 @@ class LoginPage extends StatelessWidget {
                             onPressed: () {},
                             child: Text(
                               'LOGIN',
-                              style: TextStyle(
-                                  fontWeight: FontWeight.w600,
-                                  color: whiteColor,
-                                  fontSize: 16),
+                              style: whiteTextStyle.copyWith(
+                                fontWeight: FontWeight.w600,
+                                color: whiteColor,
+                                fontSize: 16,
+                              ),
                             ),
                           ),
                         ),
@@ -142,12 +131,12 @@ class LoginPage extends StatelessWidget {
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           InkWell(
-                            onTap: (){
+                            onTap: () {
                               Navigator.pushNamed(context, '/register');
                             },
                             child: Text(
                               'Registration',
-                              style: TextStyle(
+                              style: blueTextStyle.copyWith(
                                 color: blueColor,
                                 fontWeight: FontWeight.w600,
                                 fontSize: 12,
@@ -161,7 +150,7 @@ class LoginPage extends StatelessWidget {
                             onTap: () {},
                             child: Text(
                               'Forgot Password',
-                              style: TextStyle(
+                              style: blueTextStyle.copyWith(
                                 color: blueColor,
                                 fontWeight: FontWeight.w600,
                                 fontSize: 12,
