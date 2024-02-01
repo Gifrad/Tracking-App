@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:tracking_app/pages/login/login_page.dart';
 import 'package:tracking_app/pages/register/register_page.dart';
 import 'package:tracking_app/pages/splash/splash_page.dart';
+import 'package:tracking_app/pages/start/start_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -22,6 +23,7 @@ class MyApp extends StatelessWidget {
         '/': (context) => const SplashPage(),
         '/login': (context) => const LoginPage(),
         '/register': (context) => const RegisterPage(),
+        '/start' :(context) => const StartPage(),
       },
     );
   }

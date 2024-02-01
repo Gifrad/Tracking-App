@@ -38,7 +38,7 @@ class _SplashPageState extends State<SplashPage> {
                 children: [
                   Text(
                     'Indonesia     ',
-                    style: TextStyle(
+                    style: whiteTextStyle.copyWith(
                       color: whiteColor,
                       letterSpacing: 1,
                     ),
