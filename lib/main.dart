@@ -1,12 +1,19 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:tracking_app/pages/login/login_page.dart';
+import 'package:tracking_app/pages/main_page.dart';
 import 'package:tracking_app/pages/register/register_page.dart';
 import 'package:tracking_app/pages/setting/setting_page.dart';
 import 'package:tracking_app/pages/splash/splash_page.dart';
 import 'package:tracking_app/pages/start/start_page.dart';
+import 'package:tracking_app/providers/bottom_start_provider.dart';
+import 'package:tracking_app/providers/page_provider.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(MultiProvider(providers: [
+    ChangeNotifierProvider(create: (context) => PageProvider()),
+    ChangeNotifierProvider(create: (context) => ButtomStartProvider()),
+  ], child: const MyApp()));
 }
 
 class MyApp extends StatelessWidget {
@@ -21,11 +28,13 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       routes: {
-        '/': (context) => const SplashPage(),
+        '/': (context) => const MainPage(),
+        // '/': (context) => const SplashPage(),
         '/login': (context) => const LoginPage(),
         '/register': (context) => const RegisterPage(),
-        '/start' :(context) => const StartPage(),
-        '/setting' :(context) => const SettingPage(),
+        '/start': (context) => const StartPage(),
+        '/setting': (context) => const SettingPage(),
+        '/main': (context) => const MainPage(),
       },
     );
   }

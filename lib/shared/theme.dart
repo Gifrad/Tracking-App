@@ -14,6 +14,8 @@ Color blueTextColor = const Color(0xff0082D2);
 Color blueButtonColor = const Color(0xff0F87DA);
 Color linearBg1 = const Color(0xff0F87DA);
 Color linearBg2 = const Color(0xff02D1FF);
+Color bottomBg = const Color(0xffF2F2F2);
+
 
 TextStyle blackBodyTextStyle = GoogleFonts.poppins(
   color: blackBodyTextColor,
@@ -37,6 +39,10 @@ TextStyle blueTextStyle = GoogleFonts.poppins(
 
 TextStyle whiteTextStyle = GoogleFonts.poppins(
   color: whiteColor,
+);
+
+TextStyle redTextStyle = GoogleFonts.poppins(
+  color: redColor,
 );
 
 

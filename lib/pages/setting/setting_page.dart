@@ -165,7 +165,9 @@ class SettingPage extends StatelessWidget {
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(10),
                       )),
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.pushNamed(context, '/main');
+                  },
                   child: Text(
                     'SAVE',
                     style: whiteTextStyle.copyWith(
