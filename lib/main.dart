@@ -8,11 +8,13 @@ import 'package:tracking_app/pages/splash/splash_page.dart';
 import 'package:tracking_app/pages/start/start_page.dart';
 import 'package:tracking_app/providers/bottom_start_provider.dart';
 import 'package:tracking_app/providers/page_provider.dart';
+import 'package:tracking_app/providers/picker_time_provider.dart';
 
 void main() {
   runApp(MultiProvider(providers: [
     ChangeNotifierProvider(create: (context) => PageProvider()),
     ChangeNotifierProvider(create: (context) => ButtomStartProvider()),
+    ChangeNotifierProvider(create: (context) => PickerTimeProvider()),
   ], child: const MyApp()));
 }
 
@@ -28,8 +30,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       routes: {
-        '/': (context) => const MainPage(),
-        // '/': (context) => const SplashPage(),
+        '/': (context) => const SplashPage(),
         '/login': (context) => const LoginPage(),
         '/register': (context) => const RegisterPage(),
         '/start': (context) => const StartPage(),

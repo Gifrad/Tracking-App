@@ -15,7 +15,7 @@ Color blueButtonColor = const Color(0xff0F87DA);
 Color linearBg1 = const Color(0xff0F87DA);
 Color linearBg2 = const Color(0xff02D1FF);
 Color bottomBg = const Color(0xffF2F2F2);
-
+Color dropDownColor = const Color(0xff909090);
 
 TextStyle blackBodyTextStyle = GoogleFonts.poppins(
   color: blackBodyTextColor,
@@ -45,6 +45,17 @@ TextStyle redTextStyle = GoogleFonts.poppins(
   color: redColor,
 );
 
+TextStyle greenTextStyle = GoogleFonts.poppins(
+  color: greenColor,
+);
+
+TextStyle dropDownTextStyle = GoogleFonts.montserrat(
+  color: dropDownColor,
+);
+
+TextStyle blackMontTextStyle = GoogleFonts.montserrat(
+  color: blackColor,
+);
 
 FontWeight light = FontWeight.w300;
 FontWeight regular = FontWeight.w400;
