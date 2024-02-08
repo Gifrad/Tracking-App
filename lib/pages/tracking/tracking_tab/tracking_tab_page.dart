@@ -1,9 +1,12 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_map/flutter_map.dart';
 import 'package:latlong2/latlong.dart';
 import 'package:provider/provider.dart';
 import 'package:tracking_app/providers/picker_time_provider.dart';
 import 'package:tracking_app/shared/theme.dart';
+import 'package:http/http.dart' as http;
 
 class TrackingTabPage extends StatefulWidget {
   const TrackingTabPage({super.key});
@@ -13,6 +16,7 @@ class TrackingTabPage extends StatefulWidget {
 }
 
 class _TrackingTabPageState extends State<TrackingTabPage> {
+  List<LatLng> routpoints = [LatLng(52.517037, 13.388860)];
   final DateTime dateNow = DateTime.now();
   String xenxorValue = 'B 1710 CIA';
   var items = [
@@ -22,6 +26,32 @@ class _TrackingTabPageState extends State<TrackingTabPage> {
     'B 1710 JCS',
     'B 1710 UKD',
   ];
+
+  void routing() async {
+    var url = Uri.parse(
+        'https://router.project-osrm.org/route/v1/driving/13.388860,52.517037;13.397634,52.529407?steps=true&annotations=true&geometries=geojson&overview=full');
+    var response = await http.get(url);
+    print(response.body);
+    setState(() {
+      routpoints = [];
+      var ruter =
+          jsonDecode(response.body)['routes'][0]['geometry']['coordinates'];
+      for (int i = 0; i < ruter.length; i++) {
+        var reep = ruter[i].toString();
+        reep = reep.replaceAll("[", "");
+        reep = reep.replaceAll("]", "");
+        var lat1 = reep.split(',');
+        var long1 = reep.split(",");
+        routpoints.add(LatLng(double.parse(lat1[1]), double.parse(long1[0])));
+      }
+    });
+  }
+
+  @override
+  void initState() {
+    routing();
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -163,7 +193,7 @@ class _TrackingTabPageState extends State<TrackingTabPage> {
                             shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(10),
                             )),
-                        onPressed: () {},
+                        onPressed: () async {},
                         child: Text(
                           'Lacak',
                           style: whiteTextStyle.copyWith(
@@ -186,8 +216,8 @@ class _TrackingTabPageState extends State<TrackingTabPage> {
           height: MediaQuery.of(context).size.height * 0.6,
           child: FlutterMap(
             options: MapOptions(
-              center: LatLng(-6.2832807,106.7930692),
-              zoom: 13,
+              center: routpoints[0],
+              zoom: 14,
             ),
             children: [
               TileLayer(
@@ -199,13 +229,21 @@ class _TrackingTabPageState extends State<TrackingTabPage> {
                 polylines: [
                   Polyline(
                     color: blueColor,
-                    points: [
-                      LatLng(-6.221827, 106.651144),
-                      LatLng(-6.265717, 106.800436),
-                    ],
+                    strokeWidth: 9,
+                    points: routpoints,
                   ),
                 ],
-              )
+              ),
+              MarkerLayer(
+                markers: [
+                  Marker(
+                    height: 50,
+                    width: 50,
+                    point: LatLng(52.527217, 13.387222),
+                    builder: (context) => Image.asset('assets/ic_car.png'),
+                  ),
+                ],
+              ),
             ],
           ),
         )
