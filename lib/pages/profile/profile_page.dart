@@ -130,7 +130,9 @@ class ProfilePage extends StatelessWidget {
                   ProfileContent(
                     isAsset: true,
                     title: 'Xenxor Baru',
-                    onTap: () {},
+                    onTap: () {
+                      Navigator.pushNamed(context, '/add-xenxor');
+                    },
                   ),
                   const SizedBox(
                     height: 16,
@@ -138,7 +140,9 @@ class ProfilePage extends StatelessWidget {
                   ProfileContent(
                     icon: Icons.location_city,
                     title: 'Geofence baru',
-                    onTap: () {},
+                    onTap: () {
+                      Navigator.pushNamed(context, '/add-geofence');
+                    },
                   ),
                   Container(
                     margin: const EdgeInsets.only(

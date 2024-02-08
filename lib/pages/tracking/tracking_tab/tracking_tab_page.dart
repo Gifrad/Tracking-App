@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_map/flutter_map.dart';
 import 'package:latlong2/latlong.dart';
 import 'package:provider/provider.dart';
-import 'package:tracking_app/providers/bottom_start_provider.dart';
 import 'package:tracking_app/providers/picker_time_provider.dart';
 import 'package:tracking_app/shared/theme.dart';
 

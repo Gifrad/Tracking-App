@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:tracking_app/pages/login/login_page.dart';
 import 'package:tracking_app/pages/main_page.dart';
+import 'package:tracking_app/pages/profile/add-geofence/add_geofence_page.dart';
+import 'package:tracking_app/pages/profile/add-geofence/list_geofence_page.dart';
+import 'package:tracking_app/pages/profile/add-xenxor/add_xenxor_page.dart';
 import 'package:tracking_app/pages/profile/change-password/change_password.dart';
 import 'package:tracking_app/pages/profile/customer-center/customer_center_page.dart';
 import 'package:tracking_app/pages/profile/term-condition/term_condition_page.dart';
@@ -42,6 +45,9 @@ class MyApp extends StatelessWidget {
         '/change-password': (context) => const ChangePassword(),
         '/term-condition': (context) => const TermConditionPage(),
         '/customer-center': (context) => const CustomerCenterPage(),
+        '/add-xenxor': (context) => const AddXenxorPage(),
+        '/add-geofence': (context) => const AddGeofencePage(),
+        '/list-geofence': (context) => const ListGeofencePage(),
       },
     );
   }
